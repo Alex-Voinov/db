@@ -4,12 +4,12 @@ database prototype for social media
 
 ## file descriptions
 ### dbase_func — package of programms to work with database
-    [-] creation.py — includes functions to create database
-        - create_db — creates database
-        + load_dbase — loads database to the code to work with it
-        * save_dbase — uploads database to the main file
-        - fill_db — if database is empty, it will add superviser, database ready
-        - checkbase — checks if database is exist or damaged
+- creation.py — includes functions to create database
+- create_db — creates database
++ load_dbase — loads database to the code to work with it
+* save_dbase — uploads database to the main file
+- fill_db — if database is empty, it will add superviser, database ready
+- checkbase — checks if database is exist or damaged
     [-] data_work.py — includes functions to modify database
         - identification — adds new user to database
         - user_delete — deletes user from database
