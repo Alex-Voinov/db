@@ -95,6 +95,8 @@ def checkbase(code: bool=False) -> bool:
     from os.path import exists
     from interact_funcs.user  import user_answer
     from data.const import PATH
+    from localise_func.translator import get_local_print
+    print = get_local_print()
     notification: str = ""
     if not exists(PATH) or code:
         if not code:
@@ -118,9 +120,7 @@ def checkbase(code: bool=False) -> bool:
             ):
                 fill_db()
                 return True
-            else:
-                print("Database fill declined")
-            fill_db()
+            print("Database fill declined")
             return True
         else:
             print("Database loaded sucsessfully.")

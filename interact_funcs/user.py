@@ -23,9 +23,11 @@ def user_answer(
     notification: str=""
 ) -> int:
     '''asks user a question and returns result depending on answer.'''
+    from localise_func.translator import get_local_print
     answ: str = ""
+    local_print = get_local_print()
     if notification:
-        print(notification)
+        local_print(notification)
     while answ not in posanswer + neganswer:
         answ = perfect_dt(input(question))
         if answ in posanswer:
@@ -33,9 +35,8 @@ def user_answer(
         elif answ in neganswer:
             return False
         else:
-            print("We did not understand you")
-            print(
-                "Please use answers presented: POSITIVES: "
-                f"({', '.join(posanswer)}) or NEGATIVES: "
-                f"({', '.join(neganswer)})"
-            )
+            local_print("We did not understand you")
+            local_print("Please use answers presented: POSITIVES: ", end ='')
+            print(', '.join(posanswer) ,end = ' ')
+            local_print("or NEGATIVES: ")
+            print(', '.join(neganswer))

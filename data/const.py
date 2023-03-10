@@ -16,11 +16,15 @@ POS_ANW: tuple = (
     "yes",
     "sure",
     "ye",
-    "yeah"
+    "yeah",
+    'y',
 )
+
 NEG_ANW: tuple = (
     "no",
     "nah"
+    'nope',
+    'n',
 )
 
 
