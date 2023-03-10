@@ -3,25 +3,14 @@
 '''includes functions to create database.'''
 
 
-from interact_funcs.user  import user_answer
-from interact_funcs.base import list_to_strtab, read_row
-from os.path import join, exists, split as splitdir
-from time import time, ctime
-from main import FILEPATH
-from verification_funcs.password import checkpssw
-from const import (
-    DB_FILE_NAME,
-    PATH,
-    ROLES,
-    ORGPOL,
-    CONST_FILE_NAME
-)
-
-DIRNAME, FILENAME = splitdir(FILEPATH)
-
-
 def create_db() -> None:
     '''creates database.'''
+    from data.const import CONSTPATH, DB_FILE_NAME
+    from os.path import join, split as splitdir
+    from interact_funcs.user  import user_answer
+    from main import FILEPATH
+    from localise_func.translator import get_local_print
+    DIRNAME = splitdir(FILEPATH)[0]
     if user_answer(
         "Would you like to create the database file in the same directory?: "
     ):
@@ -31,19 +20,18 @@ def create_db() -> None:
             "Where would you like to create database: "
             ), DB_FILE_NAME
         )
-    CONST_PATH: str = join(DIRNAME, CONST_FILE_NAME)
-    with open(CONST_PATH, "rt", encoding="utf-8") as pathchange:
+    with open(CONSTPATH, "rt", encoding="utf-8") as pathchange:
         oldfile: list = pathchange.readlines()
     for index in range(len(oldfile)):
         if "PATH: str = " in oldfile[index]:
             oldfile[index] = f"PATH: str = r'{path}'\n"
             break
-    with open(CONST_PATH, "wt", encoding="utf-8") as writing:
+    with open(CONSTPATH, "wt", encoding="utf-8") as writing:
         print(*oldfile, sep="", end="", file=writing)
     with open(path, "wt", encoding="utf-8") as new_file:
         print("", end="", file=new_file)
-    #fill_db()
-    print(
+    local_print = get_local_print()
+    local_print(
         "New path for your database is made, "
         "restart the application to continue"
     )
@@ -51,6 +39,8 @@ def create_db() -> None:
 
 def load_dbase() -> list:
     '''loads database to the code to work with it.'''
+    from interact_funcs.base import read_row
+    from data.const import PATH, ROLES
     user_model: dict = {}
     db = []
     with open(PATH, "rt", encoding="utf-8") as dbase:
@@ -71,6 +61,8 @@ def load_dbase() -> list:
 
 def save_dbase(dbase: list) -> None:
     '''uploads database to the main file.'''
+    from interact_funcs.base import list_to_strtab
+    from data.const import PATH
     log_front: str = list_to_strtab(dbase[0].keys())
     with open(PATH, "wt", encoding="utf-8") as file_save:
         print(log_front, file=file_save)
@@ -80,6 +72,10 @@ def save_dbase(dbase: list) -> None:
 
 def fill_db() -> None:
     '''if database is empty, it will add superviser, database ready.'''
+    from time import time, ctime
+    from verification_funcs.password import checkpssw
+    from interact_funcs.base import list_to_strtab
+    from data.const import PATH, ORGPOL
     userdata: list = [0, ]
     print("\n\n\tSuper user identification: \n\n")
     for field in ORGPOL[1:-2]:
@@ -96,6 +92,9 @@ def fill_db() -> None:
 
 def checkbase(code: bool=False) -> bool:
     '''checks if database is exist or damaged.'''
+    from os.path import exists
+    from interact_funcs.user  import user_answer
+    from data.const import PATH
     notification: str = ""
     if not exists(PATH) or code:
         if not code:
