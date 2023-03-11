@@ -5,11 +5,11 @@ from localise_func.translator import get_local_print
 
 
 FILEPATH: str = abspath(__file__)
+print: Callable[[str], str] = get_local_print()
 
 
 def main():
     '''Main program cycle.'''
-    print: Callable[[str], str] = get_local_print()
     if checkbase():
         try:
             db: list = load_dbase()

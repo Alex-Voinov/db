@@ -5,7 +5,6 @@ UNKNOWN: int = -1
 CODE_LANG: int = 1
 SUPER_USER: int = 0
 PATH: str = r'c:\proect_set\db\baza.txt'
-CONST_FILE_NAME: str = "const.py"
 SEPTAB: str = "\t" * 7
 PASS_LEN_MIN: int = 5
 MAX_RPT_CHR: int = 5
@@ -18,6 +17,9 @@ POS_ANW: tuple = (
     "ye",
     "yeah",
     'y',
+    'да',
+    'д',
+    'si',
 )
 
 NEG_ANW: tuple = (
@@ -25,6 +27,8 @@ NEG_ANW: tuple = (
     "nah"
     'nope',
     'n',
+    'нет',
+    'н',
 )
 
 

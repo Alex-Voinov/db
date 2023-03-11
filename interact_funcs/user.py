@@ -29,7 +29,8 @@ def user_answer(
     if notification:
         local_print(notification)
     while answ not in posanswer + neganswer:
-        answ = perfect_dt(input(question))
+        local_print(question, end ='')
+        answ = perfect_dt(input())
         if answ in posanswer:
             return True
         elif answ in neganswer:

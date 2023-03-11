@@ -15,7 +15,7 @@ VOCAB: dict = {
                 'Dove vuoi creare il database:',
             ),
             'New path for your database is made, restart the application to continue':(
-                'Создан новый путь для вашей базы данных, перезапустите приложение, чтобы продолжить',
+                'В системе зарегестрирован новый путь для вашей базы данных, перезапустите приложение, чтобы продолжить',
                 'New path for your database is made, restart the application to continue',
                 "Viene creato un nuovo percorso per il database, riavviare l'applicazione per continuare",
             ),
@@ -118,6 +118,16 @@ VOCAB: dict = {
                 'или негативных',
                 'or NEGATIVES: ',
                 'o negativo',
+            ),    
+            'Do you want to create a new database?: ':(
+                'Вы желаете создать новую базу данных?: ',
+                'Do you want to create a new database?: ',
+                'Vuoi creare un nuovo database?:',
+            ),
+            'Would you like to create the database file in the same directory?: ':(
+                'Желаете ли вы создать базу данных в одной директории с программой? ',
+                'Would you like to create the database file in the same directory?: ',
+                'Vuoi creare il file di database nella stessa directory?:',
             ),
             '':(
                 '',
