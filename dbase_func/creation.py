@@ -9,15 +9,14 @@ def create_db() -> None:
     from os.path import join, split as splitdir
     from interact_funcs.user  import user_answer
     from main import FILEPATH
-    from localise_func.translator import get_local_print
-    local_print = get_local_print()
+    from localise_func.translator import localized_print
     DIRNAME = splitdir(FILEPATH)[0]
     if user_answer(
         "Would you like to create the database file in the same directory?: "
     ):
         path: str = join(DIRNAME, DB_FILE_NAME)
     else:
-        local_print("Where would you like to create database: ", end = '')
+        localized_print("Where would you like to create database: ", end = '')
         path: str = join(input(), DB_FILE_NAME)
     with open(CONSTPATH, "rt", encoding="utf-8") as pathchange:
         oldfile: list = pathchange.readlines()
@@ -29,7 +28,7 @@ def create_db() -> None:
         print(*oldfile, sep="", end="", file=writing)
     with open(path, "wt", encoding="utf-8") as new_file:
         print("", end="", file=new_file)
-    local_print(
+    localized_print(
         "New path for your database is made, "
         "restart the application to continue"
     )
@@ -93,8 +92,8 @@ def checkbase(code: bool=False) -> bool:
     from os.path import exists
     from interact_funcs.user  import user_answer
     from data.const import PATH
-    from localise_func.translator import get_local_print
-    print = get_local_print()
+    from localise_func.translator import get_localized_print
+    print = get_localized_print()
     notification: str = ""
     if not exists(PATH) or code:
         if not code:

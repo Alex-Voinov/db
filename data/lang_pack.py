@@ -129,6 +129,36 @@ VOCAB: dict = {
                 'Would you like to create the database file in the same directory?: ',
                 'Vuoi creare il file di database nella stessa directory?:',
             ),
+            'Settings have been successfully reset to basic':(
+                'Настройки успешно сброшены до базовых',
+                'Settings have been successfully reset to basic',
+                'Le impostazioni sono state ripristinate correttamente alle impostazioni di base',
+            ),
+            'Special Launch':(
+                'Специальный запуск',
+                'Special Launch',
+                'Lancio speciale',
+            ),
+            'Recognized settings have been applied successfully':(
+                'Распознанные настройки применены успешно',
+                'Recognized settings have been applied successfully',
+                'Le impostazioni riconosciute sono state applicate correttamente',
+            ),
+            'Reset settings to initial':(
+                'Сброс настроек до начальных',
+                'Reset settings to initial',
+                'Ripristina le impostazioni iniziali',
+            ),
+            'Additional startup parameter':(
+                'Дополнительный параметр запуска',
+                'Additional startup parameter',
+                'Opzione di avvio opzionale',
+            ),
+            'not found in the database':(
+                'не найдён в базе',
+                'not found in the database',
+                'non trovato nel database',
+            ),
             '':(
                 '',
                 '',

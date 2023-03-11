@@ -6,7 +6,7 @@ from localise_func.interact_user import get_code
 from typing import Callable
 
 
-def get_local_print(code: int = 0) -> Callable[[str], None]:
+def get_localized_print(code: int = 0) -> Callable[[str], None]:
     '''Generator of localisation translator function.'''
     from data.lang_pack import VOCAB
     TUPLE_NUMERATION_CONV: int = 1
@@ -19,3 +19,5 @@ def get_local_print(code: int = 0) -> Callable[[str], None]:
         '''Prints phrase in chosen language.'''
         print(VOCAB[word][ language_code - TUPLE_NUMERATION_CONV], end = end)
     return lang_print
+
+localized_print: Callable[[str], str] = get_localized_print()
